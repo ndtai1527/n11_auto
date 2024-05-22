@@ -28,7 +28,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
-        ssh-key: ${{secret.CLONE_KEY}}
+        ssh-key: ${{secrets.CLONE_KEY}}
         repository: ndtai1527/spes_autobuild
 
     - name: Set up Time 
