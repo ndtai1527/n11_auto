@@ -1,0 +1,49 @@
+name: Build for SPES
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_url:
+        description: 'URL of the file to build'
+        required: true
+      
+
+jobs:
+
+  Let_him_cook_broooo:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+
+    - name: Clean 1
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: 512
+        swap-size-mb: 1024
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ssh-key: ${{secret.CLONE_KEY}}
+        repository: ndtai1527/spes_autobuild
+
+    - name: Set up Time 
+      run: |
+        echo "Setting Vienam timezone"
+        sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+
+    - name: Install Stuff
+      run: |
+        sudo apt-get install -y aria2 rclone sshpass python3 dialog libgtk-3-dev aapt busybox zip unzip p7zip-full openjdk-8-jre zipalign zstd bc android-sdk-libsparse-utils xmlstarlet python3
+        sudo pip3 install ConfigObj
+    - name: Cooking
+      env:
+        INPUT_URL: ${{ inputs.input_url }}
+      run: |
+        chmod +x run.sh
+        ./run.sh "$INPUT_URL"
+
