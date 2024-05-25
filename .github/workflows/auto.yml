@@ -35,7 +35,7 @@ jobs:
 
       - name: Checkout WORKSPACE
         run: |
-          git clone https://${{ secrets.PRIVATEP_TOKEN }}@github.com/ndtai1527/spes_autobuild.git /home/runner/WORKSPACE
+          git clone https://${{ secrets.PRIVATEP_TOKEN }}@github.com/ndtai1527/spes_autobuild.git
 
       - name: Set up Time
         run: |
@@ -47,6 +47,12 @@ jobs:
           sudo apt-get install -y aria2 rclone sshpass python3 dialog libgtk-3-dev aapt busybox zip unzip p7zip-full openjdk-8-jre zipalign zstd bc android-sdk-libsparse-utils xmlstarlet python3
           sudo pip3 install ConfigObj
 
-      - name: Cooking
+      - name: ch mod
         run: |
-          chmod 777 /home/runner/WORKSPACE/run.sh && sudo bash /home/runner/WORKSPACE/run.sh /home/runner/WORKSPACE/${{ github.event.inputs.input_url }}
+          sudo chmod 777 -R *
+      - name: Cooking
+        env:
+          INPUT_URL: ${{ inputs.input_url }}
+        run: |
+          ./run.sh "$INPUT_URL"
+      
