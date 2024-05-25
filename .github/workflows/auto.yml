@@ -58,5 +58,5 @@ jobs:
           INPUT_URL: ${{ inputs.input_url }}
         run: |
           cd $GITHUB_WORKSPACE/spes_autobuild
-          ./run.sh "$INPUT_URL"
+          sudo bash run.sh "$INPUT_URL"
       
