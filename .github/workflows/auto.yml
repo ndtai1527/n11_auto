@@ -50,8 +50,6 @@ jobs:
         sudo apt-get install -y aria2 rclone sshpass python3 dialog libgtk-3-dev aapt busybox zip unzip p7zip-full openjdk-8-jre zipalign zstd bc android-sdk-libsparse-utils xmlstarlet python3
         sudo pip3 install ConfigObj
     - name: Cooking
-      env:
-        INPUT_URL: ${{ inputs.input_url }}
       run: |
-        chmod 777 /home/runner/WORKSPACE/run.sh && sudo bash /home/runner/WORKSPACE/run.sh /home/runner/WORKSPACE/${{ github.event.inputs.INPUT.URL }}
+        chmod 777 /home/runner/WORKSPACE/run.sh && sudo bash /home/runner/WORKSPACE/run.sh /home/runner/WORKSPACE/${{ github.event.inputs.input.url }}
       
