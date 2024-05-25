@@ -36,7 +36,7 @@ jobs:
       - name: Checkout WORKSPACE
         run: |
           cd $GITHUB_WORKSPACE
-          git clone https://${{ secrets.PRIVATEP_TOKEN }}@github.com/ndtai1527/spes_autobuild.git
+          git clone https://${{ secrets.PRIVATEP_TOKEN }}@github.com/ndtai1527/spes_autobuild.git 
 
       - name: Set up Time
         run: |
@@ -50,10 +50,13 @@ jobs:
 
       - name: ch mod
         run: |
+          cd $GITHUB_WORKSPACE/spes_autobuild
           sudo chmod 777 -R *
+
       - name: Cooking
         env:
           INPUT_URL: ${{ inputs.input_url }}
         run: |
+          cd $GITHUB_WORKSPACE/spes_autobuild
           ./run.sh "$INPUT_URL"
       
