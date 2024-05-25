@@ -35,7 +35,7 @@ jobs:
 
       - name: Checkout WORKSPACE
         run: |
-          git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/ndtai1527/spes_autobuild.git /home/runner/WORKSPACE
+          git clone https://${{ secrets.PRIVATEP_TOKEN }}@github.com/ndtai1527/spes_autobuild.git /home/runner/WORKSPACE
 
       - name: Set up Time
         run: |
