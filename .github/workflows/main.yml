@@ -1,4 +1,4 @@
-name: Build for SPES mke
+name: Build for erofs
 
 on:
   workflow_dispatch:
@@ -57,5 +57,5 @@ jobs:
           INPUT_URL: ${{ inputs.input_url }}
         run: |
           cd spes_autobuild
-          ./make.sh "$INPUT_URL"
+          ./erofs_wip.sh "$INPUT_URL"
       
