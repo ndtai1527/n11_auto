@@ -57,5 +57,5 @@ jobs:
           INPUT_URL: ${{ inputs.input_url }}
         run: |
           cd spes_autobuild
-          ./erofs_wip.sh "$INPUT_URL"
+          ./Erofs_wip.sh "$INPUT_URL"
       
