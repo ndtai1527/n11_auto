@@ -64,5 +64,5 @@ jobs:
           INPUT_URL: ${{ inputs.input_url }}
         run: |
           cd spes_autobuild
-          ./Erofs_wip.sh "$INPUT_URL"
+          ./xagay.sh "$INPUT_URL"
       
