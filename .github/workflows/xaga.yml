@@ -1,4 +1,4 @@
-name: Build for erofs
+name: Build for XAGA
 
 on:
   workflow_dispatch:
