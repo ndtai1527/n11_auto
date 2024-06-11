@@ -64,5 +64,5 @@ jobs:
           INPUT_URL: ${{ inputs.input_url }}
         run: |
           cd spes_autobuild
-          sudo bash marble.sh "$INPUT_URL"
+          ./marble.sh "$INPUT_URL"
       
